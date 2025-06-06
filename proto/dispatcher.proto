@@ -1,0 +1,23 @@
+//proto/dispatcher.proto
+
+syntax = "proto3";
+
+package dispatcher;
+
+// The service definition
+service Dispatcher {
+  rpc CallFunction (FunctionCallRequest) returns (FunctionCallResponse);
+}
+
+// The request contains the function name and arguments as a string or bytes
+message FunctionCallRequest {
+  string function_name = 1;
+  bytes arguments = 2; // Serialized args (you can use protobuf again inside)
+}
+
+// The response contains the result or error
+message FunctionCallResponse {
+  bool success = 1;
+  bytes result = 2; // Serialized result (again can be protobuf inside)
+  string error_message = 3;
+}
