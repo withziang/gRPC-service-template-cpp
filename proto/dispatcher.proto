@@ -12,12 +12,12 @@ service Dispatcher {
 // The request contains the function name and arguments as a string or bytes
 message FunctionCallRequest {
   string function_name = 1;
-  bytes arguments = 2; // Serialized args (you can use protobuf again inside)
+  bytes arguments = 2; // Serialized args 
 }
 
 // The response contains the result or error
 message FunctionCallResponse {
   bool success = 1;
-  bytes result = 2; // Serialized result (again can be protobuf inside)
+  bytes result = 2; // Serialized result 
   string error_message = 3;
 }
